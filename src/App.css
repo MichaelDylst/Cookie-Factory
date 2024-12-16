@@ -6,30 +6,63 @@ body {
   justify-content: center;
   text-align: center;
   width: 100%;
-  background-color: hsl(0, 0%, 45%);
+  background-color: hsla(18, 85%, 16%, 1);
 }
 
-.game-board {
+.game-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding: 24px;
+  margin-top: 10rem;
+  border-radius: 16px;
+  box-shadow: 1px 2px 0 hsl(0, 59%, 36%);
+  background-image: url("/public/images/cookie-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 0.5rem 0;
+  background-color: hsla(18, 85%, 16%, 0.9);
+  padding: 0.5rem;
+}
+
+.total-game {
+  display: flex;
+  justify-content: center;
 }
 
 .cookie-holder {
-  background-color: hsl(0, 2%, 65%);
+  display: flex;
+  flex-direction: column;
+  background-color: hsla(18, 85%, 16%, 0.9);
   padding: 1rem;
-  margin-top: 10rem;
   border-radius: 4px;
   color: hsl(0, 4%, 91%);
-  box-shadow: 1px 2px 0 hsl(0, 6%, 60%);
+  box-shadow: 1px 2px 0 hsla(18, 85%, 16%, 0.9);
+}
+
+.bakery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 2rem;
+  background-color: hsla(18, 85%, 16%, 0.9);
+  border-radius: 4px;
+  padding: 16px;
+  color: hsl(0, 4%, 91%);
+  box-shadow: 1px 2px 0 hsla(18, 85%, 16%, 0.9);
 }
 
 .cookie-image {
   width: 200px;
   height: 200px;
 }
-
-.cookie-image:active {
-  transform: scale(0.95);
+.grandma-cookies-image {
+  width: 150px;
+  height: 150px;
 }
 
 .reset-cookies {
@@ -41,13 +74,13 @@ body {
   color: hsl(0, 4%, 91%);
 }
 
-.multiply-cookies {
+.button {
   border: none;
   box-shadow: 0 1px 0 hsl(0, 2%, 65%);
-  background-color: hsl(109, 68%, 43%);
   padding: 8px;
   border-radius: 4px;
-  color: hsl(0, 4%, 91%);
+  color: hsl(0, 26%, 89%);
+  font-weight: 700;
   margin-top: 0.5rem;
 }
 
@@ -55,11 +88,15 @@ body {
   transform: scale(0.95);
 }
 
-.multiply-cookies:active {
+.affordable:active {
   transform: scale(0.95);
 }
 
 .button-area {
   display: flex;
   flex-direction: column;
+}
+
+.bakery h1 {
+  margin-bottom: 0;
 }
