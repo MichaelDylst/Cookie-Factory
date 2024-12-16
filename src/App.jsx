@@ -8,7 +8,8 @@ export default function App() {
   const [cookies, setCookies] = useState(0);
   const [grandmaActive, setGrandmaActive] = useState(false);
   const [grandmaPrice, setGrandmaPrice] = useState(40);
-  const [grandmaMultiplier, setGrandmaMultiplier] = useState(2);
+  const [grandmaMultiplier, setGrandmaMultiplier] = useState(0);
+  const [grandmaCount, setGrandmaCount] = useState(0);
 
   function handleClick() {
     setCookies(cookies + 1);
@@ -19,6 +20,7 @@ export default function App() {
     setGrandmaActive(false);
     setGrandmaMultiplier(1);
     setGrandmaPrice(40);
+    setGrandmaCount(0);
   }
 
   function grandmaActivate() {
@@ -27,7 +29,7 @@ export default function App() {
       setGrandmaActive(true);
       setGrandmaMultiplier(grandmaMultiplier + 1);
       setGrandmaPrice((prev) => Math.floor(prev * 1.8));
-    } else {
+      setGrandmaCount((prev) => prev + 1);
     }
   }
 
@@ -35,7 +37,7 @@ export default function App() {
     if (grandmaActive) {
       const interval = setInterval(() => {
         setCookies((prev) => prev + grandmaMultiplier);
-      }, 1500);
+      }, 1000);
       return () => clearInterval(interval);
     }
   }, [grandmaActive, grandmaMultiplier]);
@@ -57,6 +59,7 @@ export default function App() {
                 cookies={cookies}
                 grandmaActivate={grandmaActivate}
                 grandmaPrice={grandmaPrice}
+                grandmaCount={grandmaCount}
               />
             </div>
           </div>
