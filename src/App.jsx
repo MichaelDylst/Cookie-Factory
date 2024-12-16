@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import Cookie from "./components/Cookie/cookie.jsx";
+import Cookie from "./components/Cookies/Cookie.jsx";
 import ResetCookie from "./components/ResetGame/ResetGame.jsx";
 import Bakery from "./components/Bakery/bakery.jsx";
 
