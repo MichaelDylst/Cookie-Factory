@@ -31,8 +31,8 @@ function Cookie({ onClick }) {
         <motion.div
           key={click.id}
           initial={{ opacity: 1, y: 0 }}
-          animate={{ opacity: 0, y: -50 }}
-          transition={{ duration: 1 }}
+          animate={{ opacity: 0, y: -100 }}
+          transition={{ duration: 2 }}
           style={{
             position: "absolute",
             left: click.x,

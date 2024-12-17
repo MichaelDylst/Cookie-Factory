@@ -1,7 +1,17 @@
 import GrandMa from "../Grandmother/Grandmother";
 import GrandMotherImage from "../Grandmother/Grandmother-image";
+import Oven from "../Oven/oven";
+import OvenImage from "../Oven/oven-image";
 
-function Bakery({ cookies, grandmaPrice, grandmaActivate, grandmaCount }) {
+function Bakery({
+  cookies,
+  grandmaPrice,
+  grandmaActivate,
+  grandmaCount,
+  ovenPrice,
+  ovenActivate,
+  ovenCount,
+}) {
   return (
     <>
       <div className="bakery">
@@ -13,10 +23,21 @@ function Bakery({ cookies, grandmaPrice, grandmaActivate, grandmaCount }) {
             <GrandMotherImage key={index} />
           ))}
         </div>
+        <div className="oven-container">
+          {Array.from({ length: ovenCount }).map((_, index) => (
+            <OvenImage key={index} />
+          ))}
+        </div>
         <GrandMa
           grandmaPrice={grandmaPrice}
           grandmaActivate={grandmaActivate}
           cookies={cookies}
+        />
+        <Oven
+          ovenPrice={ovenPrice}
+          cookies={cookies}
+          ovenActivate={ovenActivate}
+          ovenCount={ovenCount}
         />
       </div>
     </>

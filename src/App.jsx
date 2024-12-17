@@ -10,6 +10,9 @@ export default function App() {
   const [grandmaPrice, setGrandmaPrice] = useState(40);
   const [grandmaMultiplier, setGrandmaMultiplier] = useState(0);
   const [grandmaCount, setGrandmaCount] = useState(0);
+  const [ovenPrice, setOvenPrice] = useState(80);
+  const [ovenActive, setOvenActive] = useState(false);
+  const [ovenCount, setOvenCount] = useState(0);
 
   function handleClick() {
     setCookies(cookies + 1);
@@ -21,6 +24,18 @@ export default function App() {
     setGrandmaMultiplier(1);
     setGrandmaPrice(40);
     setGrandmaCount(0);
+    setOvenPrice(80);
+    setOvenCount(0);
+  }
+
+  function ovenActivate() {
+    if (cookies >= ovenPrice) {
+      setCookies((prev) => prev - ovenPrice);
+      setOvenActive(true);
+      setGrandmaMultiplier(grandmaMultiplier * 2);
+      setOvenPrice((prev) => Math.floor(prev * 2));
+      setOvenCount((prev) => prev + 1);
+    }
   }
 
   function grandmaActivate() {
@@ -60,6 +75,9 @@ export default function App() {
                 grandmaActivate={grandmaActivate}
                 grandmaPrice={grandmaPrice}
                 grandmaCount={grandmaCount}
+                ovenPrice={ovenPrice}
+                ovenActivate={ovenActivate}
+                ovenCount={ovenCount}
               />
             </div>
           </div>

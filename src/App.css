@@ -66,9 +66,9 @@ body {
   display: flex;
 }
 
-.grandma-cookies-image {
-  width: 50px;
-  height: 50px;
+.image {
+  width: 25px;
+  height: 25px;
 }
 
 .reset-cookies {
