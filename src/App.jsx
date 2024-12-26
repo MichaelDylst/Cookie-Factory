@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Cookie from "./components/Cookies/Cookie.jsx";
 import ResetCookie from "./components/ResetGame/ResetGame.jsx";
 import Bakery from "./components/Bakery/bakery.jsx";
+import SaveGame from "./components/saveGame/SaveGame.jsx";
+const APIURL = "http://localhost:3001";
 
 export default function App() {
   const [cookies, setCookies] = useState(0);
@@ -48,6 +50,25 @@ export default function App() {
     }
   }
 
+  const saveGameInfo = async () => {
+    try {
+      const response = await fetch(`${APIURL}/saveGameInfo`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          cookies: cookies,
+          grandma: grandmaCount,
+          ovent: ovenCount,
+        }),
+      });
+      const result = await response.json();
+      console.log(result);
+    } catch (err) {}
+  };
+
   useEffect(() => {
     if (grandmaActive) {
       const interval = setInterval(() => {
@@ -63,6 +84,7 @@ export default function App() {
         <div className="game-container">
           <div className="header">
             <ResetCookie resetGame={resetGame} />
+            <SaveGame saveGame={saveGameInfo} />
           </div>
           <div className="total-game">
             <div className="cookie-holder">
