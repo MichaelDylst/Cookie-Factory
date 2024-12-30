@@ -2,7 +2,6 @@ import Fastify from "fastify";
 import dotenv from "dotenv";
 import fastifyPostgres from "@fastify/postgres";
 import cors from "@fastify/cors";
-import { drizzle } from "drizzle-orm/node-postgres";
 import { db } from "./db";
 import { gameInformation } from "./db/schema";
 
@@ -42,11 +41,11 @@ fastify.post<{ Body: GameInfo }>("/saveGameInfo", async (req, reply) => {
   try {
     const { cookies, grandma, ovent } = req.body;
     fastify.log.info({ cookies, grandma, ovent });
-    const query =
-      "INSERT INTO game_information (cookies, grandma, oven) VALUES ($1, $2, $3) RETURNING *;";
-
-    const result = await fastify.pg.query(query, [cookies, grandma, ovent]);
-    reply.send(result.rows);
+    const result = await db
+      .insert(gameInformation)
+      .values({ cookies, grandma, oven: ovent })
+      .returning();
+    reply.send(result);
   } catch (err) {
     return reply.code(500).send({ message: "An error occured", err });
   }
