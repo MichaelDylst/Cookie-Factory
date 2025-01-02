@@ -9,5 +9,5 @@ export default function App() {
       <Route path="/" element={<Login />} />
       <Route path="/game" element={<GamePage />} />
     </Routes>
-  );
+  )
 }

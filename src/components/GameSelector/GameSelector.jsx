@@ -31,7 +31,7 @@ export default function GameSelector() {
         value={selectedGame}
         onChange={(e) => setSelectedGame(e.target.value)}
       >
-        <option>--Choose a game--</option>
+        <option></option>
         <option>New Game</option>
         {games.map((game) => (
           <option
@@ -43,6 +43,7 @@ export default function GameSelector() {
       <button
         className="load-game-button"
         onClick={() => loadGame(selectedGame)}
+        disabled={!selectedGame}
       >
         Load Game
       </button>
