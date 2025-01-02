@@ -1,0 +1,46 @@
+:root {
+  font-size: 100%;
+}
+body {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  background-color: hsla(18, 85%, 16%, 1);
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  margin-top: 10rem;
+  border-radius: 16px;
+  box-shadow: 1px 2px 0 hsl(0, 59%, 36%);
+  background-image: url("/public/images/cookie-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 0.5rem 0;
+  background-color: hsla(18, 85%, 16%, 0.9);
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.total-game {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  border: none;
+  box-shadow: 0 1px 0 hsl(0, 2%, 65%);
+  padding: 8px;
+  border-radius: 4px;
+  color: hsl(0, 26%, 89%);
+  font-weight: 700;
+  margin-top: 0.5rem;
+}

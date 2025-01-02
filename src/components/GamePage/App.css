@@ -106,3 +106,44 @@ body {
 .bakery h1 {
   margin-bottom: 0;
 }
+
+h2 {
+  color: hsl(0, 46%, 42%);
+  background-color: hsla(0, 30%, 84%, 0.7);
+  border-radius: 14px;
+  padding: 4px;
+}
+
+.game-container-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  margin-top: 10rem;
+  border-radius: 16px;
+  box-shadow: 1px 2px 0 hsl(0, 59%, 36%);
+  background-color: hsla(0, 30%, 84%, 0.7);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.load-game-button {
+  border: none;
+  box-shadow: 0 1px 0 hsl(0, 2%, 65%);
+  padding: 8px;
+  border-radius: 4px;
+  color: hsl(0, 26%, 89%);
+  background-color: hsl(122, 41%, 58%);
+  font-weight: 700;
+  margin-top: 0.5rem;
+  width: 6rem;
+}
+
+.load-game-button:active {
+  transform: scale(0.95);
+}
+
+.load-game-button:disabled {
+  background-color: hsl(0, 0%, 69%);
+  transform: none;
+}
