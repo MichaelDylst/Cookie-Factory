@@ -4,6 +4,7 @@ import fastifyPostgres from "@fastify/postgres";
 import cors from "@fastify/cors";
 import { db } from "./db";
 import { gameInformation } from "./db/schema";
+import { eq } from "drizzle-orm";
 
 dotenv.config();
 
@@ -48,6 +49,29 @@ fastify.post<{ Body: GameInfo }>("/saveGameInfo", async (req, reply) => {
     reply.send(result);
   } catch (err) {
     return reply.code(500).send({ message: "An error occured", err });
+  }
+});
+
+interface gameID {
+  game_id: number;
+}
+
+fastify.post<{ Body: gameID }>("/GetGameInfo", async (req, reply) => {
+  const { game_id } = req.body;
+  fastify.log.info({ game_id });
+  try {
+    const result = await db
+      .select({
+        cookies: gameInformation.cookies,
+        grandma: gameInformation.grandma,
+        oven: gameInformation.oven,
+      })
+      .from(gameInformation)
+      .where(eq(gameInformation.gameId, game_id))
+      .execute();
+    reply.send(result);
+  } catch (error) {
+    fastify.log.info(error);
   }
 });
 

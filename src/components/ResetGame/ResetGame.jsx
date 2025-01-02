@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 function ResetCookie({ resetGame }) {
   return (
     <>
