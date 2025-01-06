@@ -14,20 +14,24 @@ function Bakery({
 }) {
   return (
     <>
-      <div className="bakery">
-        <h1>Bakery</h1>
-        <h4>You have {cookies} cookies!</h4>
-        <br />
-        <div className="grandma-container">
-          {Array.from({ length: grandmaCount }).map((_, index) => (
-            <GrandMotherImage key={index} />
-          ))}
+      <div className="flex-col items-center text-center">
+        <h4 className="text-xl font-semibold mt-7">
+          You have {cookies} cookies!
+        </h4>
+        <div className="">
+          {" "}
+          <div className="flex justify-center flex-wrap">
+            {Array.from({ length: grandmaCount }).map((_, index) => (
+              <GrandMotherImage key={index} />
+            ))}
+          </div>
+          <div className="flex justify-center flex-wrap">
+            {Array.from({ length: ovenCount }).map((_, index) => (
+              <OvenImage key={index} />
+            ))}
+          </div>
         </div>
-        <div className="oven-container">
-          {Array.from({ length: ovenCount }).map((_, index) => (
-            <OvenImage key={index} />
-          ))}
-        </div>
+
         <GrandMa
           grandmaPrice={grandmaPrice}
           grandmaActivate={grandmaActivate}

@@ -8,7 +8,7 @@ function Oven({ ovenPrice, cookies, ovenActivate }) {
     <>
       <button
         onClick={ovenActivate}
-        className={`button ${isAffordable ? "affordable" : ""}`}
+        className="m-1 bg-blue-500 text-white py-2 px-3 rounded hover:bg-green-500 disabled:bg-gray-400 text-xs"
         style={buttonStyle}
         disabled={!isAffordable}
       >

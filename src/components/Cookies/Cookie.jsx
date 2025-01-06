@@ -18,7 +18,7 @@ function Cookie({ onClick }) {
       <motion.img
         src="/images/cookie.png"
         alt="cookie-image"
-        className="cookie-image"
+        className="size-36"
         onClick={handleCookieClick}
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.95 }}

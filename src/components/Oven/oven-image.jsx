@@ -4,7 +4,7 @@ function OvenImage() {
       <img
         src="/images/oven.png"
         alt="image of an oven"
-        className="image"
+        className="size-6"
       ></img>
     </>
   );

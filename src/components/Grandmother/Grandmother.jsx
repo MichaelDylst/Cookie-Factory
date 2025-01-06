@@ -8,7 +8,7 @@ function GrandMa({ grandmaPrice, grandmaActivate, cookies }) {
     <>
       <button
         onClick={grandmaActivate}
-        className={`button ${isAffordable ? "affordable" : ""}`}
+        className="m-1 bg-blue-500 text-white p-2 rounded hover:bg-blue-600 disabled:bg-gray-400 text-xs"
         disabled={!isAffordable}
         style={buttonStyle}
       >

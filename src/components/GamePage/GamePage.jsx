@@ -1,11 +1,9 @@
-import "./App.css";
 import { useState, useEffect } from "react";
 import Cookie from "../Cookies/Cookie.jsx";
 import ResetCookie from "../ResetGame/ResetGame.jsx";
 import Bakery from "../Bakery/bakery.jsx";
 import SaveGame from "../saveGame/SaveGame";
 import { useLocation } from "react-router-dom";
-
 const APIURL = "http://localhost:3001";
 
 export default function GamePage() {
@@ -33,7 +31,6 @@ export default function GamePage() {
             body: JSON.stringify({ game_id: gameId }),
           });
           const result = await response.json();
-          console.log(result);
           if (response.ok) {
             setCookies(result[0].cookies);
             setGrandmaCount(result[0].grandma);
@@ -127,17 +124,17 @@ export default function GamePage() {
   {
     return (
       <>
-        <div className="game-container">
-          <div className="header">
+        <div className="max-w-md flex-col justify-center rounded-sm">
+          <div className="bg-gray-400 flex justify-end">
             <ResetCookie resetGame={resetGame} />
             <SaveGame saveGame={saveGameInfo} />
           </div>
-          <div className="total-game">
-            <div className="cookie-holder">
-              <h1>Cookie Clicker</h1>
+
+          <div className="bg-gray-200 flex">
+            <div className="w-80 p-5 flex justify-center">
               <Cookie onClick={handleClick} />
             </div>
-            <div>
+            <div className="">
               <Bakery
                 cookies={cookies}
                 grandmaActivate={grandmaActivate}

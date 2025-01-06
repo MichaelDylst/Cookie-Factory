@@ -3,7 +3,7 @@ function GrandMotherImage({}) {
     <img
       src="/images/cookie-grandma.png"
       alt="grandma holding cookies"
-      className="image"
+      className="size-6"
     ></img>
   );
 }
